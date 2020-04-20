@@ -21,6 +21,12 @@
 
 	<!-- Theme CSS - Includes Bootstrap And My Custom CSS -->
 	<link href="css/root.min.css" rel="stylesheet">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_lWF2YAvWtOANorjSzORLk");
+   })();
+</script>
 </head>
 <body>
 	<section class="wrapper">
@@ -299,29 +305,29 @@
 							</ul>
 						  </div>   
 						  <div class="col-12 col-sm-12 col-md-12 col-lg-7">
-							<form action="#" class=" needs-validation card" id="validationForm" novalidate method="post">
+							<form  class="needs-validation card" id="validationForm" novalidate>
 							  <div class="form-group text-capitalize">
 								<label for="full_name">Full name</label>
-								<input type="text" name="full_name" placeholder="Enter full name" class="form-control" required>
+								<input id = "full_name" type="text" name="full_name" placeholder="Enter full name" class="form-control" required>
 								<div class="invalid-feedback">
 								  Please Enter your Full name.
 								</div>
 							  </div>
 							  <div class="form-group">
 								<label for="full_email">Email</label>
-								<input type="email" name="full_email" placeholder="email@exampl.com" class="form-control" required>
+								<input id = "full_email" type="email" name="full_email" placeholder="email@exampl.com" class="form-control" required>
 								<div class="invalid-feedback">
 								  Please enter a valid email address.
 								</div>
 							  </div>
 							  <div class="form-group">
 								<label for="full_message">Message</label>
-								<textarea style = "resize: none;" type="message" name="full_message" placeholder="your message" class="form-control" required></textarea>
+								<textarea  id = "full_message" style = "resize: none;" type="message" name="full_message"  placeholder="your message" class="form-control" required></textarea>
 								<div class="invalid-feedback">
 								  Please write a message.
 								</div>
 							  </div>
-							  <button type ="submit" class="btn btn-primary">Submit</button>
+							  <button id = "btn_send" disabled  type="button" class="btn btn-primary">Submit</button>
 							</form>         
 						  </div>
 					</div>
@@ -347,5 +353,47 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="js/main.js"></script>
+
+	<script>
+		document.getElementById('btn_send').addEventListener('click', function(){
+		console.log('i am here');
+		
+		let reply_to = document.getElementById('full_email').value;
+		let from_name = document.getElementById('full_name').value;
+		let message = document.getElementById('full_message').value;
+		var template_params = {
+			"to": "eyong.joel@gmail.com",
+			"reply_to": reply_to,
+			"from_name": from_name,
+			"message": message
+		}
+	 var service_id = "default_service";
+	 var template_id = "template_WFp07kBp";
+	 if(message!="" || from_name!=="" || reply_to!=""){
+	 emailjs.send(service_id, template_id, template_params)
+	 .then(function (response){
+		 console.log('SUCCESS!', response.status, response.text);
+		 alert(" Thanks! Message submitted Successfully!")
+		 from_name = "";
+		 message = "";
+		 reply_to = "";
+
+        //alert
+
+
+	 },
+	 function (error){
+		 console.log('FAILED!', error);
+	 })
+	};
+	});
+
+
+
+
+	
+	</script>
+
+	
 </body>
 </html>

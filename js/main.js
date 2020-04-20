@@ -26,6 +26,25 @@ $('.main-menu a').on('click', function (e) {
 
 });
 
+	// document.getElementById('btn_send').addEventListener('submit', function(){
+	// 	console.log('i am here');
+	// 	var template_params = {
+	// 		"to": "to_value",
+	// 		"from_name": "from_name_value",
+	// 		"message": "message_value"
+	// 	 }
+	 
+	 
+	//  var service_id = "default_service";
+	//  var template_id = "template_WFp07kBp";
+	//  emailjs.send(service_id, template_id, template_params)
+	//  .then(function (response){
+	// 	 console.log('SUCCESS!', response.status, response.text);
+	//  },
+	//  function (error){
+	// 	 console.log('FAILED!', error);
+	//  });
+	//   });
 
 // Change the current active window based on the hash value in the url.
 var type = window.location.hash.substr(1);
@@ -79,5 +98,20 @@ var filterizr = new Filterizr('.filter-container', options);
 	form.classList.add('was-validated');
 	}, false);
 	});
+	document.getElementById('validationForm').querySelectorAll('.form-control').forEach(function (input) {
+		input.addEventListener(('input'), function() {
+		  if (input.checkValidity()) {
+			input.classList.remove('is-invalid')
+			input.classList.add('is-valid');
+			// $("#submitBtn").attr("disabled",false);           <<<<======== ??????
+		  } else {
+			input.classList.remove('is-valid')
+			input.classList.add('is-invalid');
+		  }
+		  var is_valid = $('.form-control').length === $('.form-control.is-valid').length;
+		  $("#btn_send").attr("disabled", !is_valid);
+		});
+	  });
 	}, false);
 	})();
+
