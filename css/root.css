@@ -1,6 +1,6 @@
 /*!
- * Clarity Enhanced - Clear Resume v1.0.0 (https://filiprastovic.com)
- * Copyright 2019-2020 Clarity Enhanced
+ * Clarity Enhanced - My Resume v1.0.0 ()
+ * Copyright 2019-2021 JOEL EMOH
  */
 
 /*!
@@ -10562,7 +10562,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 html,
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Georgia', 'serif';
 }
 
 body {
@@ -10577,7 +10577,7 @@ body {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Georgia', 'serif';
   line-height: 1.5;
 }
 
@@ -10603,7 +10603,7 @@ h5 {
 
 h6 {
   font-size: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 p {
@@ -10660,8 +10660,8 @@ label, .label {
 }
 
 .sidebar img {
-  -webkit-box-shadow: 0 1px 32px rgba(20, 23, 26, 0.12);
-  box-shadow: 0 1px 32px rgba(20, 23, 26, 0.12);
+  -webkit-box-shadow: 0 1px 32px rgba(6, 27, 47, 0.12);
+  box-shadow: 0 1px 32px rgba(6, 27, 47, 0.12);
 }
 
 .sidebar figcaption {
